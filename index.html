@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>:: IPTV Home Screen ::</title>
+<meta charset="utf-8">
+
+<!--Files Need to be Included-->
+<link href="css/style-fast_anim.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/cms-page-tracking.js"></script>
+		<script type="text/javascript" src="js/android/key_code.js"></script>
+		<script type="text/javascript" src="js/android/key_event.js"></script>
+<script type="text/javascript">
+var defaultSelectedMenuId = "menu1";
+</script>
+<script type="text/javascript" src="js/tv-menu-fast_anim.js"></script>
+<script type="text/javascript">
+function androidtoweb()
+{
+	 return "mainmenu";
+}
+function callbackRCBack()
+{
+	var backcontentType = $(".backurl").attr("content-type");
+	if(backcontentType == 'url'){
+		var pg = $(".backurl").attr("single_click_url");
+		window.parent.location.href = pg;
+	}
+}
+</script>
+<style>
+body {
+	background-image : url(images/en-foodandbeverageslandingpage.jpg);
+	background-size : cover;                   
+	background-repeat : no-repeat;
+	background-position: center center;       
+}
+
+#abc{
+        position:absolute;
+        top:250px;
+        left:250px;
+        width:200px;
+        height:100px;
+        color:white;
+        border:1px solid white;
+}
+</style>
+<!--Files Need to be Included-->
+
+</head><body onload="javascript:this.focus();">
+<!--Main Menu Section-->
+<div class="audioplayer">
+ <audio id="background_audio" autoplay loop>
+  <source src="audio/bensound-sweet.mp3" type="audio/mpeg">
+</audio>
+</div>
+<div id="dock-container">
+<div id="left_arrow" style="display:block;">
+    <img  src="images/arrow_left.png" style="float:left;height:53px;width:49px"/>
+  </div>
+  <div id="dock">
+    <div class="backurl" content-type="url" single_click_url="http://192.168.82.1/tv/menu.do?previous-selected-menu=cmslink:103"></div>
+    <ul id="main_menu_ul" style="cursor:pointer;">
+
+      <li id="1" select="true"><span>Signature Restaurants</span>
+        <div content-type="url" single_click_url="signaturerestaurants_en.html?stb-type=android&browser-version=" item="menu1"><img src="images/signatu-rerestaurants_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+
+	  <li id="2" select="false"><span>In room Dining</span>
+        <div content-type="url" single_click_url="inroomdining_en.html?stb-type=android&browser-version=" item="menu2"><img src="images/in-room-dining_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+ 
+    </ul>
+  </div>
+  <div id="right_arrow" style="display:block;">
+    <img  src="images/arrow_right.png" style="float:right;height:53px;width:49px"/>
+  </div>
+</div>
+<!--Main Menu Section-->
+
+
+<div class="pagebtm">
+<img src="images/android/horizontal_navigate.png" alt="navigate" style=" margin-left:5px; vertical-align:middle;"/> <span>to navigate</span>
+<img src="images/android/ok.png" alt="HOME" style="vertical-align:middle; margin-right:2px; margin-left:15px;"  /> <span>to select</span>
+<img src="images/android/home.png" alt="HOME" style="vertical-align:middle; margin-right:2px; margin-left:15px;"  /> <span>to main menu</span>
+<img src="images/android/navigate2.png" alt="Back" style="vertical-align:middle; margin-right:2px; margin-left:15px;"/> <span>to return</span>
+</div>
+
+</body>
+</html>

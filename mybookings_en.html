@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>:: IPTV Home Screen ::</title>
+<meta charset="utf-8">
+
+<!--Files Need to be Included-->
+<link href="css/style-fast_anim.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/cms-page-tracking.js"></script>
+		<script type="text/javascript" src="js/android/key_code.js"></script>
+		<script type="text/javascript" src="js/android/key_event.js"></script>
+<script type="text/javascript">
+var defaultSelectedMenuId = "menu1";
+</script>
+<script type="text/javascript" src="js/tv-menu-fast_anim.js"></script>
+<script>
+var mybookingsContainerScroll = 0;
+var scrollPosition = 94;
+var mybookingsListContainerHeight = 0;
+var mybookingsListHeight = 0;
+$(function(){
+	mybookingsListContainerHeight = $('.mybookings-list-container').height();
+	mybookingsListHeight = $('.mybookings-list').height();
+	if(mybookingsListContainerHeight < mybookingsListHeight){
+		$('.mybookings-scroll-button').css('display','inline-block');
+		$('.mybookings-list-container').addClass('mybookings-list-scroll');
+	}
+})
+$(window).load(function(){
+	$(".mybookings-list").html("<p>Please wait....</p>");
+	 $.ajax({
+                url     : "/tv/get-general-service-order-data.do",
+                type    : "POST",
+                success : function(data)
+                {
+                      //$("#booking-success").show();
+			var jsonStr = JSON.parse(data); //JSON.stringify(data);
+			var innerHtml = "";
+			$.each(jsonStr, function(ind,elem){
+				innerHtml += "<p>";
+				innerHtml += elem.generalServiceItemName + " " + elem.requestTime;
+				innerHtml += "</p>"; 
+			});
+			$(".mybookings-list").html(innerHtml);
+                        //alert("mybookings-list : " + innerHtml);
+                }
+        });
+
+
+});
+function callbackRCUpArrow()
+{
+	if($('.mybookings-list-container').hasClass('mybookings-list-scroll')){
+		mybookingsContainerScroll = $('.mybookings-list-scroll').scrollTop();
+		if(mybookingsContainerScroll > 0){
+			$('.mybookings-list-scroll').scrollTop(mybookingsContainerScroll-scrollPosition);
+		}
+	}
+	playAudio();
+}
+function callbackRCDownArrow()
+{
+	if($('.mybookings-list-container').hasClass('mybookings-list-scroll')){
+		mybookingsContainerScroll = $('.mybookings-list-scroll').scrollTop();
+		mybookingsListContainerHeight = $('.mybookings-list-container').height();
+		mybookingsListHeight = $('.mybookings-list').height();
+		if(mybookingsListHeight > mybookingsContainerScroll){
+			$('.mybookings-list-scroll').scrollTop(mybookingsContainerScroll+scrollPosition);
+		}
+	}
+	playAudio();
+}
+</script>
+<style>
+body {
+        background-image   : url(images/en-bookings.jpg);
+	background-size    : cover;                    
+	background-repeat  : no-repeat;
+	background-position: center center;           
+}
+
+#abc{
+        position:absolute;
+        top:250px;
+        left:250px;
+        width:200px;
+        height:100px;
+        color:white;
+        border:1px solid white;
+}
+</style>
+
+</head>
+<body onload="javascript:this.focus();">
+<div class="audioplayer">
+ <audio id="background_audio" autoplay loop>
+  <source src="audio/bensound-sweet.mp3" type="audio/mpeg">
+</audio> 
+</div>
+<div id="dock-container">
+  <div id="dock">
+    <div class="backurl" content-type="url" single_click_url="foodandbeverageslanding_en.php?menu=menu5&stb-type=android&browser-version="></div>
+  </div>
+</div>
+<div class="mybookings-container">
+   <h1>My Bookings</h1>
+   <div class="mybookings-list-container">
+      <div class="mybookings-list">
+      </div>
+   </div>
+</div>
+<div class="pagebtm">
+<span class="mybookings-scroll-button"><img src="images/android/vertical_navigate.png" alt="navigate" style=" margin-left:5px; vertical-align:middle;"/> to Scroll</span>
+<img src="images/android/home.png" alt="HOME" style="vertical-align:middle; margin-right:2px; margin-left:15px;"  /> <span>to main menu</span>
+<img src="images/android/navigate2.png" alt="Back" style="vertical-align:middle; margin-right:2px; margin-left:15px;"/> <span>to return</span>
+</div>
+</body>
+</html>

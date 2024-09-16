@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>:: IPTV Home Screen ::</title>
+<meta charset="utf-8">
+
+<!--Files Need to be Included-->
+<link href="css/style-fast_anim.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/cms-page-tracking.js"></script>
+		<script type="text/javascript" src="js/android/key_code.js"></script>
+		<script type="text/javascript" src="js/android/key_event.js"></script>
+<script type="text/javascript">
+var defaultSelectedMenuId = "menu1";
+</script>
+<script type="text/javascript" src="js/tv-menu-fast_anim.js"></script>
+
+<style>
+body {
+        background-image   : url(images/en-breakfastird.jpg);
+	background-size    : cover;                    
+	background-repeat  : no-repeat;
+	background-position: center center;           
+}
+
+#abc{
+        position:absolute;
+        top:250px;
+        left:250px;
+        width:200px;
+        height:100px;
+        color:white;
+        border:1px solid white;
+}
+</style>
+<!--Files Need to be Included-->
+
+</head><body onload="javascript:this.focus();">
+<!--Main Menu Section-->
+<div class="audioplayer">
+
+ <audio id="background_audio" autoplay loop>
+  <source src="audio/bensound-sweet.mp3" type="audio/mpeg">
+</audio> 
+</div>
+
+<div id="dock-container">
+<div id="left_arrow" style="display:block;">
+    <img  src="images/arrow_left.png" style="float:left;height:53px;width:49px"/>
+  </div>
+  <div id="dock">
+    <div class="backurl" content-type="url" single_click_url="inroomdining_en.php?menu=menu1&stb-type=android&browser-version="></div>
+    <ul id="main_menu_ul" style="cursor:pointer;">
+      <li id="1" select="true"><span>Page 1</span>
+        <div content-type="image" single_click_url="en-breakfastird1.jpg" item="menu1"><img src="images/breakfastird_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+
+      <li id="2" select="false"   ><span>Page 2</span>
+        <div content-type="image" single_click_url="en-breakfastird2.jpg" item="menu2"><img src="images/breakfastird_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+      <li id="3" select="false"   ><span>Page 3</span>
+        <div content-type="image" single_click_url="en-breakfastird3.jpg" item="menu3"><img src="images/breakfastird_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+       <li id="4" select="false"    ><span>Page 4</span>
+        <div content-type="image" single_click_url="en-breakfastird4.jpg" item="menu4"><img src="images/breakfastird_menu.png" /><p><img src="images/menu-cover.png" /></p></div>
+      </li> 
+      <li id="5" select="false"  ><span>Page 5</span>
+        <div content-type="image" single_click_url="en-breakfastird5.jpg" item="menu5"><img src="images/breakfastird_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+      <li id="6" select="false"   ><span>Page 6</span>
+        <div content-type="image" single_click_url="en-breakfastird6.jpg" item="menu6"><img src="images/breakfastird_menu.png"/><p><img src="images/menu-cover.png" /></p></div>
+      </li>
+    </ul>
+  </div>
+  <div id="right_arrow" style="display:block;">
+    <img  src="images/arrow_right.png" style="float:right;height:53px;width:49px"/>
+  </div>
+</div>
+<!--Main Menu Section-->
+<!-- <div id="booking-modal-body">
+	<div class="booking-modal-container">
+    <div id="booking-success">Please dial 3300 to confirm booking.</div>
+	</div>
+</div> -->
+
+
+<div class="pagebtm">
+<img src="images/android/horizontal_navigate.png" alt="navigate" style=" margin-left:5px; vertical-align:middle;"/> <span>to navigate</span>
+<img src="images/android/ok.png" alt="HOME" style="vertical-align:middle; margin-right:2px; margin-left:15px;"  /> <span>to select</span>
+<img src="images/android/home.png" alt="HOME" style="vertical-align:middle; margin-right:2px; margin-left:15px;"  /> <span>to main menu</span>
+<img src="images/android/navigate2.png" alt="Back" style="vertical-align:middle; margin-right:2px; margin-left:15px;"/> <span>to return</span>
+</div>
+
+</body>
+</html>
