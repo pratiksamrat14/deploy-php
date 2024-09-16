@@ -153,7 +153,7 @@ function goToPage(pg)
 {
 	if(pg.indexOf("/") == -1)
         {
-            pg = "/foodandbeverages/" + pg;
+            pg = "/" + pg;
         } 
 	window.location.href = pg;
 }
